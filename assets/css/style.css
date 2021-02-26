@@ -17,7 +17,14 @@ body, #wrapper{
 #wrapper_game{
     padding: 30px;
     border-radius: 30px;
-    box-shadow: rgba(33, 33, 116, 0.25) 0px 50px 100px -20px, rgba(160, 158, 158, 0.3) 0px 30px 60px -30px, rgba(128, 134, 139, 0.35) 0px -2px 6px 0px inset;
+    animation: glowgame 4s ease-in-out infinite;
+
+    /* box-shadow: rgba(33, 33, 116, 0.25) 0px 50px 100px -20px, rgba(160, 158, 158, 0.3) 0px 30px 60px -30px, rgba(128, 134, 139, 0.35) 0px -2px 6px 0px inset; */
+}
+
+@keyframes glowgame{
+    0%,100%{box-shadow: rgba(221, 10, 56, 0.25) 0px 30px 60px -12px, rgba(240, 6, 96, 0.3) 0px 18px 36px -18px;}
+    50%{box-shadow: rgba(221, 10, 56, 0.25) 0px 19px 38px, rgba(240, 6, 96, 0.3) 0px 15px 12px;}
 }
 
 #game_in{
@@ -64,9 +71,26 @@ input[type=number]{
     cursor: pointer;
 }
 
-#btn:active{
+.choosing_elem:active{
     color: white;
     box-shadow: rgba(255, 255, 255, 0.25) 0px 0.0625em 0.0625em, rgba(255, 255, 255, 0.25) 0px 0.125em 0.5em, rgba(0, 0, 0, 0.1) 0px 0px 0px 1px inset;
     transition: all .2s;
-    t
+    
+}
+
+#showInformations{
+    color: #666;
+    text-align: center;
+}
+
+#comps_choose{
+    opacity: 0.4;
+    color: white;
+    transition: opacity 300ms;
+    animation: disappearItem 4s forwards;
+}
+
+@keyframes disappearItem{
+    to{opacity: 0;}
+
 }

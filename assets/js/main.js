@@ -30,12 +30,20 @@ const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
 
+let showInformations = document.getElementById("show_nformations")
+
 // const tryCount = document.getElementsByName("try_count")
 
 
 rock.addEventListener("click", choosedHand)
 paper.addEventListener("click", choosedHand)
 scissors.addEventListener("click", choosedHand)
+
+// rock.addEventListener("click", fadeOutEffect)
+
+
+
+const compsChoose = document.getElementById("comps_choose")
 
 const newGame = document.getElementById("new_game");
 const flowResults = document.getElementById("flow_results");
@@ -46,15 +54,29 @@ const handsArray = ["ROCK", "PAPER", "SCISSORS"]
 let counter = 1;
 
 
+function fadeOutEffect() {
+
+    let fadeEffect = setInterval(function (){
+        compsChoose.style.opacity = 0.5;
+        if(!compsChoose.style.opacity){
+            compsChoose.style.opacity = 1;
+        }else if(compsChoose.style.opacity > 0){
+            compsChoose.style.opacity -= 0.1;
+        }else {
+            clearInterval(fadeEffect);
+        }
+    },200);
+}
 
 
 function choosedHand() {
     let compsHand = Math.floor(Math.random() * 3)
     let myHand = this.value;
-
+    compsChoose.style.opacity = 0.5;
 
     console.log("you choose" + " " + myHand)
     console.log("comp chooses" + " " + handsArray[compsHand])
+
 
     console.log(tryCount)
     triesTotal.innerHTML = tryCount;
@@ -69,13 +91,22 @@ function choosedHand() {
         console.log("You win")
         yoursWinsNum++;
         yoursWins.innerHTML = yoursWinsNum;
+        showInformations.innerHTML =`Your ${myHand} beats Comp's ${handsArray[compsHand]}`
+        showInformations.style.color = "green"
+
+
 
     } else if(handsArray[compsHand] === myHand){
         console.log("DRAW")
+        showInformations.innerHTML =`Your ${myHand} vs Comp's ${handsArray[compsHand]} - DRAW`
+        showInformations.style.color = "#666"
+
     } else{
         console.log("Comps win")
         compsWinsNum++;
         compsWins.innerHTML = compsWinsNum;
+        showInformations.innerHTML =`Your ${myHand} loses to Comp's ${handsArray[compsHand]} `
+        showInformations.style.color = "red"
     }
     if( Number(tryCount/yoursWinsNum)<2 || Number(tryCount/compsWinsNum)<2 ){
         console.log("game over")
@@ -90,58 +121,8 @@ function choosedHand() {
         }
     }
     counter++
-
 }
 
 
-
-
-
-const counterSetCustom = document.getElementById("set_try_counter")
-const displayCustom = document.getElementById("custom_num_form")
-const guessNumber = document.getElementById("guess_number");
-
-const formTryCount = document.getElementById("form_try_count");
 const gameIn = document.getElementById("game_in");
-
-// const counterTries = document.getElementById("counter_tries");
-// const triesTotal = document.getElementById("tries_total");
-const btn = document.getElementById("btn");
-
-// const flowResults = document.getElementById("flow_results");
-// const newGame = document.getElementById("new_game");
-
-newGame.style.display = "none"
-
-let randomNumber = Math.floor(Math.random() * 100);
-// let tryCount = 4;
-// let counter = 1;
-
-
-
-// function setFour() {
-//     displayCustom.style.display = "none"
-//     tryCount = 4;
-// }
-// function setFive() {
-//     displayCustom.style.display = "none"
-//     tryCount = 5;
-// }
-// function setSix() {
-//     displayCustom.style.display = "none"
-//     tryCount = 6;
-// }
-
-// function setCustom() {
-//     tryCount = counterSetCustom.value;
-// }
-
-function showInputField() {
-    counterSetCustom.value = null;
-    displayCustom.style.display = "inline-block";
-
-}
-
-
-
-
+// newGame.style.display = "none"
