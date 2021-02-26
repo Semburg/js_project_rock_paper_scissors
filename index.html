@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <section id="wrapper">
+        <section id="wrapper_game">
+
+            <form id="form_try_count">
+                <h3>Best of</h3>
+                <input type="radio" name="try_count" id="three" value="3" checked >
+                <label for="try_count">3</label>
+                <input type="radio" name="try_count" id="five" value="5">
+                <label for="try_count">5</label>
+                <br>
+
+                <input type="radio" name="try_count" id="nine" value="9">
+                <label for="try_count">9</label>
+
+                <input type="radio" name="try_count" id="twelve" value="12">
+                <label for="try_count">12</label>
+                <br>
+
+
+            </form>
+
+            <section id="game_in">
+                <h3>Your game - best of <span id="tries_total"></span></h3>
+                <p> Total rounds played: <span id="counter_tries">1</span> </p>
+
+                <h2>you <span id="yours_wins">0</span>   /   <span id="comps_wins">0</span>  Comp</h2>
+
+            </section>
+            <br><br>
+            <form id="form_guess_numbers">
+
+                <br>
+                <input type="button" id="rock" class="choosing_elem"  value="ROCK">
+                <input type="button" id="paper" class="choosing_elem" value="PAPER">
+                <input type="button" id="scissors" class="choosing_elem" value="SCISSORS">
+                
+            </form>
+            <br><br>
+            <div id="flow_results"><br></div> 
+            <p id="new_game" onclick="window.location.reload()">Play again!</p>  <br>
+        </section>
+    </section>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
